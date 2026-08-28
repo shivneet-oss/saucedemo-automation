@@ -1,0 +1,17 @@
+Test Case ID,Description,Expected Result,Priority,Status
+TC-LOGIN-001,Valid login with standard_user,User is redirected to product catalogue,High,Pass
+TC-LOGIN-002,Login with locked_out_user,Error message shown - user locked out,High,Pass
+TC-LOGIN-003,Login with invalid password,Error message shown - credentials do not match,High,Pass
+TC-LOGIN-004,Login with empty username,Error message shown - username required,Medium,Pass
+TC-LOGIN-005,Login with empty password,Error message shown - password required,Medium,Pass
+TC-PRODUCTS-001,Product catalogue loads after login,At least one product is displayed,High,Pass
+TC-PRODUCTS-002,Products can be sorted by price low to high,Products reorder correctly by price,Medium,Pass
+TC-PRODUCTS-003,clicking a product opens product detail page,Product detail page displays correctly,Medium,Pass
+TC-CART-001,Add a product to cart,Cart badge shows 1 item,High,Pass
+TC-CART-002,Add multiple products to cart,Cart badge updates correctly,High,Pass
+TC-CART-003,Remove a product from cart,Cart badge decreases correctly,Medium,Pass
+TC-CHECKOUT-001,Complete checkout with valid details,Order confirmation page is shown,High,Pass
+TC-CHECKOUT-002,Checkout with empty first name,Error message shown - first name required,Medium,Pass
+TC-CHECKOUT-003,Checkout with empty last name,Error message shown - last name required,Medium,Pass
+TC-CHECKOUT-004,Checkout with empty postal code,Error message shown - postal code required,Medium,Pass
+TC-LOGOUT-001,User can logout successfully,User is redirected to login page,High,Pass

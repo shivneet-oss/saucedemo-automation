@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SauceDemo Test Report</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, Helvetica, sans-serif; background: #f4f6f8; color: #1f2937; padding: 30px; }
+        .header { background: #e2231a; color: white; padding: 24px 32px; border-radius: 10px; margin-bottom: 24px; }
+        .header h1 { font-size: 1.8rem; margin-bottom: 6px; }
+        .header p { font-size: 0.9rem; opacity: 0.8; }
+        .summary { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+        .card { background: white; border-radius: 10px; padding: 20px 28px; flex: 1; min-width: 140px;
+                 box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center; }
+        .card .number { font-size: 2.2rem; font-weight: 700; margin-bottom: 4px; }
+        .card .label { font-size: 0.85rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+        .card.pass .number { color: #059669; }
+        .card.fail .number { color: #dc2626; }
+        .card.skipped .number { color: #d97706; }
+        .card.total .number { color: #2563eb; }
+        .card.rate .number { color: #7c3aed; }
+        table { width: 100%; border-collapse: collapse; background: white;
+                 border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        thead { background: #e2231a; color: white; }
+        th { padding: 14px 16px; text-align: left; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        td { padding: 14px 16px; border-bottom: 1px solid #f3f4f6; font-size: 0.9rem; vertical-align: top; }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: #f9fafb; }
+        .badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+        .badge.pass { background: #d1fae5; color: #065f46; }
+        .badge.fail { background: #fee2e2; color: #991b1b; }
+        .badge.skipped { background: #fef3c7; color: #92400e; }
+        .priority { display: inline-block; padding: 3px 10px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .priority.high { background: #fee2e2; color: #991b1b; }
+        .priority.medium { background: #fef3c7; color: #92400e; }
+        .priority.low { background: #d1fae5; color: #065f46; }
+        .footer { text-align: center; margin-top: 24px; font-size: 0.85rem; color: #9ca3af; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛒 SauceDemo End-to-End Test Report</h1>
+        <p>Website: saucedemo.com &nbsp;|&nbsp; Executed: 28 August 2026, 02:07 PM &nbsp;|&nbsp; Tool: Playwright + Python</p>
+    </div>
+
+    <div class="summary">
+        <div class="card total"><div class="number">16</div><div class="label">Total</div></div>
+        <div class="card pass"><div class="number">16</div><div class="label">Passed</div></div>
+        <div class="card fail"><div class="number">0</div><div class="label">Failed</div></div>
+        <div class="card skipped"><div class="number">0</div><div class="label">Skipped</div></div>
+        <div class="card rate"><div class="number">100%</div><div class="label">Pass Rate</div></div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Test Case ID</th>
+                <th>Description</th>
+                <th>Expected Result</th>
+                <th>Actual Result</th>
+                <th>Priority</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr>
+            <td>1</td>
+            <td><strong>TC-LOGIN-001</strong></td>
+            <td>Valid login with standard_user</td>
+            <td>User is redirected to product catalogue</td>
+            <td>User redirected to product catalogue successfully.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><strong>TC-LOGIN-002</strong></td>
+            <td>Login with locked_out_user</td>
+            <td>Error message shown - user locked out</td>
+            <td>Epic sadface: Sorry, this user has been locked out.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><strong>TC-LOGIN-003</strong></td>
+            <td>Login with invalid password</td>
+            <td>Error message shown - credentials do not match</td>
+            <td>Epic sadface: Username and password do not match any user in this service</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td><strong>TC-LOGIN-004</strong></td>
+            <td>Login with empty username</td>
+            <td>Error message shown - username required</td>
+            <td>Epic sadface: Username is required</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td><strong>TC-LOGIN-005</strong></td>
+            <td>Login with empty password</td>
+            <td>Error message shown - password required</td>
+            <td>Epic sadface: Password is required</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td><strong>TC-PRODUCTS-001</strong></td>
+            <td>Product catalogue loads after login</td>
+            <td>At least one product is displayed</td>
+            <td>6 products displayed in catalogue.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td><strong>TC-PRODUCTS-002</strong></td>
+            <td>Products can be sorted by price low to high</td>
+            <td>Products reorder correctly by price</td>
+            <td>Products sorted correctly by price low to high: [7.99, 9.99, 15.99, 15.99, 29.99, 49.99]</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td><strong>TC-PRODUCTS-003</strong></td>
+            <td>clicking a product opens product detail page</td>
+            <td>Product detail page displays correctly</td>
+            <td>Product detail page opened correctly: Sauce Labs Backpack</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td><strong>TC-CART-001</strong></td>
+            <td>Add a product to cart</td>
+            <td>Cart badge shows 1 item</td>
+            <td>Cart badge shows 1 item after adding product.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td><strong>TC-CART-002</strong></td>
+            <td>Add multiple products to cart</td>
+            <td>Cart badge updates correctly</td>
+            <td>Cart badge shows 2 items after adding two products.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td><strong>TC-CART-003</strong></td>
+            <td>Remove a product from cart</td>
+            <td>Cart badge decreases correctly</td>
+            <td>Cart badge disappeared after removing the only item.</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td><strong>TC-CHECKOUT-001</strong></td>
+            <td>Complete checkout with valid details</td>
+            <td>Order confirmation page is shown</td>
+            <td>Order confirmed: Thank you for your order!</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td><strong>TC-CHECKOUT-002</strong></td>
+            <td>Checkout with empty first name</td>
+            <td>Error message shown - first name required</td>
+            <td>Error: First Name is required</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td><strong>TC-CHECKOUT-003</strong></td>
+            <td>Checkout with empty last name</td>
+            <td>Error message shown - last name required</td>
+            <td>Error: Last Name is required</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td><strong>TC-CHECKOUT-004</strong></td>
+            <td>Checkout with empty postal code</td>
+            <td>Error message shown - postal code required</td>
+            <td>Error: Postal Code is required</td>
+            <td><span class="priority medium">Medium</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td><strong>TC-LOGOUT-001</strong></td>
+            <td>User can logout successfully</td>
+            <td>User is redirected to login page</td>
+            <td>User logged out and redirected to login page.</td>
+            <td><span class="priority high">High</span></td>
+            <td><span class="badge pass">PASS</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        <p>Generated automatically by QA Automation Suite &copy; 2026</p>
+    </div>
+</body>
+</html>
