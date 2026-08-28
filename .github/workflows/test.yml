@@ -1,0 +1,22 @@
+name: Run SauceDemo Tests
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          pip install playwright
+          python -m playwright install chromium
+      - name: Run tests
+        run: python saucedemo_test_runner.py
+        env:
+          CI: true
